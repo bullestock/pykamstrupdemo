@@ -269,9 +269,8 @@ if __name__ == "__main__":
                 p1,u = foo.readvar(0x0438)
                 time.sleep(1)
                 e1,u = foo.readvar(0x0001)
-                print(e1,u)
                 time.sleep(1)
-                if v1 == None or c1 == None or p1 == None or e1 == None:
+                if v1 == None or c1 == None or p1 == None or e1 == None or e1 < 100000:
                         bad = bad + 1
                         print('Good %d Bad %d' % (good, bad))
                 else:
@@ -295,7 +294,7 @@ if __name__ == "__main__":
                         plt.plot(t, p, 'go-', linewidth=3.0)
                         plt.ylabel('Effekt [kW]')
                         plt.gcf().axes[2].xaxis.set_major_formatter(hfmt)
-                        plt.gcf().axes[2].set_ylim([0, 0.5])
+                        plt.gcf().axes[2].set_ylim([0, 1.0])
                         plt.subplot(2, 2, 4)
                         plt.plot(t, e, 'mo-', linewidth=3.0)
                         plt.ylabel('Forbrug [kWh]')
